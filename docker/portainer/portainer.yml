@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  portainer:
+    container_name: portainer
+    image: portainer/portainer-ce:2.17.1-alpine
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "portainer-data:/data"
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.portainer.loadbalancer.server.port=9000"
+      - "traefik.http.routers.portainer.rule=Host(`portainer.traefik.me`)"
+      - "traefik.http.routers.portainer.tls=true"
+      - "traefik.http.routers.portainer.entrypoints=websecure"
+
+networks:
+  proxy:
+    external: true
+
+volumes:
+  portainer-data:
+    name: portainer-data
