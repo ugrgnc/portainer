@@ -7,7 +7,6 @@ services:
     command:
       - "--port=80"
       - "--name=name-whoami"
-      - "--hostname=hostname-whoami"
     labels:
       - traefik.enable=true
       - traefik.http.routers.whoami.entrypoints=websecure
