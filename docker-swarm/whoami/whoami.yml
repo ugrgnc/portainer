@@ -5,7 +5,7 @@ services:
     image: traefik/whoami:latest
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 10
       labels:
         - traefik.enable=true
         - traefik.http.routers.whoami.entrypoints=websecure
