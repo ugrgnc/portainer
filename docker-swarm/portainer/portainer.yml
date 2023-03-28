@@ -35,3 +35,7 @@ services:
 networks:
   proxy:
     external: true
+
+volumes:
+  portainer-data:
+    name: portainer-data
