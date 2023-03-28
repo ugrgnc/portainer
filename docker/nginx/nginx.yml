@@ -4,6 +4,8 @@ services:
   whoami:
     container_name: nginx
     image: nginx:latest
+    volumes:
+      - "./index.html:/usr/share/nginx/html/index.html"
     labels:
       - traefik.enable=true
       - traefik.http.routers.nginx.entrypoints=websecure
