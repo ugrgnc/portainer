@@ -6,7 +6,7 @@ services:
     image: traefik/whoami:latest
     command:
       - "--port=80"
-      - "--name=whoami-portainer-presentation"
+      - "--name=whoami-test"
     labels:
       - traefik.enable=true
       - traefik.http.routers.whoami.entrypoints=websecure
